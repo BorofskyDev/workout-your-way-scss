@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair, Atkinson_Hyperlegible, IBM_Plex_Mono } from "next/font/google";
 import '@/styles/global.scss'
+import Header from "@/components/layout/header/Header";
 
 const playfair = Playfair({
   variable: "--font-playfair",
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${atkinsonHyperlegible.variable} ${ibmPlexMono.variable}`}>
+        <Header />
         {children}
       </body>
     </html>
