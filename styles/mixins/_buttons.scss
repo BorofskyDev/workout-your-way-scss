@@ -1,0 +1,31 @@
+@use './accessibility' as *;
+
+@mixin baseBtn {
+    max-width: fit-content;
+    margin: var(--pixel-6) auto;
+    padding: var(--pixel-8) var(--pixel-18);
+    border: var(--border-400);
+    border-radius: var(--br-10);
+    box-shadow: var(--shadow-2);
+    text-transform: capitalize;
+    font-family: var(--font-link);
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+    transition: var(--transition-main);
+    @include focus-outline;
+
+    &:focus-visible, &:hover {
+        box-shadow: var(--shadow-4);
+        transform: scale(1.05);
+    }
+
+    &:active {
+        box-shadow: none;
+        transform: scale(.95);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+}

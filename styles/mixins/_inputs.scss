@@ -5,7 +5,7 @@
     box-shadow: var(--shadow-2);
     background-color: hsl(var(--color-bg4));
     text-align: center;
-    transition: all 0.2s ease-in-out;
+    transition: var(--transition-main);
 
     &:hover,
     &:focus-visible {

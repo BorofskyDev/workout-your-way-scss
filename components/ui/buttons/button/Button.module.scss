@@ -1,0 +1,10 @@
+@use '@/styles/mixins' as *;
+
+.button {
+    @include baseBtn;
+}
+
+.form-submit {
+    min-width: 100%;
+    background-color: hsl(var(--color-bg5));
+}
