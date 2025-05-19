@@ -1,0 +1,14 @@
+model FoodItem {
+  id          String   @id @default(uuid()) @db.Uuid
+  name        String
+  description String?
+  calories    Float?
+  protein     Float?
+  carbs       Float?
+  fats        Float?
+  servingSize String?
+  createdAt   DateTime @default(now())
+
+  mealFoods         MealFood[]
+  recipeIngredients RecipeIngredient[]
+}

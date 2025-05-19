@@ -1,0 +1,24 @@
+:root {
+  --font-heading: 'Playfair', serif;
+  --font-link: 'IBM Plex Mono', monospace;
+  --font-body: 'Atkinson Hyperlegible', sans-serif;
+
+  --fs-900: clamp(5rem, 8dvw + 1rem, 9.375rem);
+  --fs-800: clamp(3.5rem, 4dvw + 1rem, 6.25rem);
+  --fs-700: clamp(2rem, 2.2dvw + 0.5rem, 3.5rem);
+  --fs-600: clamp(1.25rem, 1.1dvw + 0.5rem, 2rem);
+  --fs-500: clamp(1rem, 1dvw + 0.3rem, 1.75rem);
+  --fs-400: clamp(0.9375rem, 0.25dvw + 0.85rem, 1.125rem);
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+
+  --fw-thin: 100;
+  --fw-extra-light: 200;
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-medium-bold: 600;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+  --fw-black: 900;
+}

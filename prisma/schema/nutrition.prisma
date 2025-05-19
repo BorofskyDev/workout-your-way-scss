@@ -1,0 +1,14 @@
+model NutritionalPlan {
+  id              String   @id @default(uuid()) @db.Uuid
+  userId          String   @db.Uuid
+  dailyCalorieMin Float?
+  dailyCalorieMax Float?
+  macroProtein    Float?
+  macroCarbs      Float?
+  macroFats       Float?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+
+  user      User       @relation(fields: [userId], references: [id])
+  mealPlans MealPlan[]
+}

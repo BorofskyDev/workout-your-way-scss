@@ -1,0 +1,12 @@
+model MacroLog {
+  id            String   @id @default(uuid()) @db.Uuid
+  userId        String   @db.Uuid
+  logDate       DateTime @db.Date
+  totalCalories Float?
+  totalProtein  Float?
+  totalCarbs    Float?
+  totalFats     Float?
+  createdAt     DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}

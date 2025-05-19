@@ -1,0 +1,110 @@
+model WorkoutDay {
+  id        String @id @default(uuid()) @db.Uuid
+  weekId    String @db.Uuid
+  dayNumber Int
+
+  workoutWeek     WorkoutWeek      @relation(fields: [weekId], references: [id])
+  workoutSessions WorkoutSession[]
+}
+
+// WorkoutSession Model
+model WorkoutSession {
+  id        String   @id @default(uuid()) @db.Uuid
+  dayId     String   @db.Uuid
+  name      String
+  userId    String   @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  day         WorkoutDay   @relation(fields: [dayId], references: [id])
+  user        User         @relation(fields: [userId], references: [id])
+  workoutSets WorkoutSet[]
+}
+
+// WorkoutSetExercise Model
+model WorkoutSetExercise {
+  id              String  @id @default(uuid()) @db.Uuid
+  setId           String  @db.Uuid
+  exerciseId      String  @db.Uuid
+  measurementType String
+  plannedCount    Int?
+  plannedDuration Int?
+  hasCountdown    Boolean @default(false)
+  actualCount     Int?
+  actualDuration  Int?
+  weights         Boolean @default(false)
+  plannedWeight   Float?
+  actualWeight    Float?
+  isPr            Boolean @default(false)
+
+  set      WorkoutSet @relation(fields: [setId], references: [id])
+  exercise Exercise   @relation(fields: [exerciseId], references: [id])
+}
+
+model WorkoutSet {
+  id              String  @id @default(uuid()) @db.Uuid
+  sessionId       String  @db.Uuid
+  setNumber       Int?
+  name            String?
+  description     String?
+  exerciseId      String? @db.Uuid
+  measurementType String?
+  plannedCount    Int?
+  plannedDuration Int?
+  hasCountdown    Boolean @default(false)
+  actualCount     Int?
+  actualDuration  Int?
+  weights         Boolean @default(false)
+  plannedWeight   Float?
+  actualWeight    Float?
+  repGoal         Int?
+  weightGoal      Float?
+  isPr            Boolean @default(false)
+  isPremade       Boolean @default(false)
+
+  session             WorkoutSession       @relation(fields: [sessionId], references: [id])
+  exercise            Exercise?            @relation("WorkoutSetToExercise", fields: [exerciseId], references: [id])
+  workoutSetExercises WorkoutSetExercise[]
+}
+
+// WorkoutProgram Model
+model WorkoutProgram {
+  id          String   @id @default(uuid()) @db.Uuid
+  name        String
+  description String?
+  userId      String   @db.Uuid
+  totalWeeks  Int
+  totalPhases Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+
+  user           User            @relation(fields: [userId], references: [id])
+  workoutPhases  WorkoutPhase[]
+  progressPhotos ProgressPhoto[]
+  checkIns       CheckIn[]
+}
+
+// WorkoutPhase Model
+model WorkoutPhase {
+  id          String  @id @default(uuid()) @db.Uuid
+  programId   String  @db.Uuid
+  phaseNumber Int
+  name        String?
+
+  program        WorkoutProgram  @relation(fields: [programId], references: [id])
+  workoutWeeks   WorkoutWeek[]
+  progressPhotos ProgressPhoto[]
+  checkIns       CheckIn[]       @relation("WorkoutPhaseCheckIns")
+}
+
+// WorkoutWeek Model
+model WorkoutWeek {
+  id         String @id @default(uuid()) @db.Uuid
+  phaseId    String @db.Uuid
+  weekNumber Int
+
+  phase       WorkoutPhase @relation(fields: [phaseId], references: [id])
+  workoutDays WorkoutDay[]
+}
+
+// ProgressPhoto Model

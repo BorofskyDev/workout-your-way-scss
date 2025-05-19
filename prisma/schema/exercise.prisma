@@ -1,0 +1,32 @@
+model MuscleGroup {
+  id          String  @id @default(uuid()) @db.Uuid
+  name        String  @unique 
+  description String?
+
+  exercises ExerciseMuscleGroup[]
+}
+
+// Exercise Model
+model Exercise {
+  id          String  @id @default(uuid()) @db.Uuid
+  name        String
+  description String?
+  createdById String? @db.Uuid
+
+  createdBy User? @relation("CreatedExercises", fields: [createdById], references: [id])
+
+  muscleGroups        ExerciseMuscleGroup[]
+  workoutSetExercises WorkoutSetExercise[]
+  workoutSets         WorkoutSet[]          @relation("WorkoutSetToExercise")
+}
+
+// Join table: ExerciseMuscleGroup
+model ExerciseMuscleGroup {
+  exerciseId    String @db.Uuid
+  muscleGroupId String @db.Uuid
+
+  exercise    Exercise    @relation(fields: [exerciseId], references: [id])
+  muscleGroup MuscleGroup @relation(fields: [muscleGroupId], references: [id])
+
+  @@id([exerciseId, muscleGroupId])
+}

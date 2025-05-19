@@ -1,0 +1,11 @@
+@use '@/styles/mixins' as *;
+
+.sectionContainer {
+  min-height: var(--min-height-sm);
+  min-width: var(--min-width-sm);
+  border: var(--border-400);
+  padding: var(--padding-16) var(--padding-20);
+  border-radius: var(--br-4);
+  background-color: hsl(var(--color-bg1));
+  box-shadow: var(--shadow-3);
+}

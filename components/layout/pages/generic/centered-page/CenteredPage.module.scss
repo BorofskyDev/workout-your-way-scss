@@ -1,0 +1,7 @@
+@use '@/styles/mixins' as *;
+
+.centeredPage {
+    @include page;
+    @include centeredGrid;
+
+}
