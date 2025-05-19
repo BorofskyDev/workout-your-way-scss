@@ -1,0 +1,9 @@
+@mixin baseContainer($bg) {
+  min-height: var(--min-height-sm);
+  min-width: var(--min-width-sm);
+  border: var(--border-400);
+  padding: var(--pixel-16) var(--pixel-20);
+  border-radius: var(--br-4);
+  background-color: $bg;
+  box-shadow: var(--shadow-3);
+}

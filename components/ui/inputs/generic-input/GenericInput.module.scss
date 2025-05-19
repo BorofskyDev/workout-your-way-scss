@@ -1,0 +1,17 @@
+@use '@/styles/mixins' as *;
+
+.genericInput {
+  margin: var(--pixel-6);
+  @include flexColCenter(var(--pixel-4));
+
+  &__input {
+    @include baseInput;
+    @include focus-outline;
+  }
+
+  &__label {
+    margin-bottom: var(--pixel-4);
+    font-size: var(--fs-500);
+    font-weight: var(--fw-bold);
+  }
+}

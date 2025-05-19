@@ -1,0 +1,24 @@
+@mixin baseInput {
+    padding: var(--pixel-8) var(--pixel-18);
+    border: var(--border-200);
+    border-radius: var(--br-8);
+    box-shadow: var(--shadow-2);
+    background-color: hsl(var(--color-bg4));
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+      box-shadow: var(--shadow-4);
+      transform: scale(1.05);
+    }
+
+    &::placeholder {
+      font-family: var(--font-link);
+      font-weight: var(--fw-bold);
+    }
+
+    &:active {
+      outline: none;
+    }
+}

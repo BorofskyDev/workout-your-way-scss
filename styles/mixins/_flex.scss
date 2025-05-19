@@ -1,0 +1,16 @@
+@mixin flex {
+    display: flex;
+}
+
+@mixin flexCol {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flexColCenter($gap: 0) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $gap;
+}

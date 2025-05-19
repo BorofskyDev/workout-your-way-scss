@@ -1,0 +1,10 @@
+@mixin focus-outline($color: hsl(var(--color-red))) {
+    &:focus-visible {
+      outline: var(--pixel-4) solid $color;
+      outline-offset: var(--pixel-6);
+    }
+  
+    // fallback for browsers that don’t support `:focus-visible`
+ 
+  }
+  
