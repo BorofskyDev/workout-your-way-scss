@@ -1,29 +1,5 @@
 @use '@/styles/mixins' as *;
 
 .internalLinkButton {
-    max-width: fit-content;
-    margin: var(--pixel-6) auto;
-    padding: var(--pixel-6) var(--pixel-24);
-    border: var(--border-400);
-    border-radius: var(--br-16);
-    box-shadow: var(--shadow-2);
-    background-color: hsl(var(--color-bg));
-    color: hsl(var(--color-link));
-    text-transform: capitalize;
-    font-family: var(--font-link);
-    font-weight: var(--fw-bold);
-    transition: var(--transition-main);
-    @include focus-outline;
-
-    &:focus-visible, &:hover {
-        box-shadow: var(--shadow-4);
-        background-color: hsl(var(--color-link));
-        color: hsl(var(--color-bg));
-        transform: scale(1.05);
-    }
-
-    &:active {
-        box-shadow: none;
-        transform: scale(.95);
-    }
+  @include linkBase;
 }

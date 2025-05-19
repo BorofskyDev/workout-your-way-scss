@@ -1,5 +1,5 @@
 @mixin page {
-    height: var(--dynamic-height);
+    height: 100%;
     width: var(--dyanmic-width);
     padding: var(--page-padding);
 }

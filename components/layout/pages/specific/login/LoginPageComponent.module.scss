@@ -1,5 +1,7 @@
 @use '@/styles/mixins' as *;
 
+
+
 .columnContainer {
     margin: var(--pixel-44) auto;
     @include flexColCenter(var(--pixel-64));
